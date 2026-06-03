@@ -27,3 +27,17 @@ Thumbs.db
 
 # === Uploads (runtime) ===
 uploads/
+
+
+# 前端依赖（核心，禁止提交）
+frontend/node_modules/
+# 打包产物
+frontend/dist/
+# 日志、IDE配置
+*.log
+.idea/
+.vscode/
+# Java后端编译目录
+backend/target/
+# PPT、文档这类大文件（可选，不想传就加）
+*.pptx
