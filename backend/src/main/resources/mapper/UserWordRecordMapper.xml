@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.english.platform.mapper.UserWordRecordMapper">
+    <select id="selectWeeklyWordStats" resultType="java.util.Map">
+        SELECT
+            DATE(last_study) AS studyDate,
+            COUNT(*) AS wordCount,
+            SUM(CASE WHEN mastered = 1 THEN 1 ELSE 0 END) AS masteredCount
+        FROM user_word_record
+        WHERE user_id = #{userId}
+          AND last_study >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+        GROUP BY DATE(last_study)
+        ORDER BY studyDate
+    </select>
+</mapper>

@@ -1,0 +1,61 @@
+USE english_platform;
+SET NAMES utf8mb4;
+
+INSERT IGNORE INTO `word` (`id`, `word`, `phonetic`, `translation`, `example`, `example_trans`, `level`, `category`) VALUES
+(11, 'adapt', '/əˈdæpt/', '适应；改编', 'We must adapt to the new environment.', '我们必须适应新环境。', 2, 'CET4'),
+(12, 'analysis', '/əˈnæləsɪs/', '分析', 'The report provides a detailed analysis of the problem.', '这份报告对问题进行了详细分析。', 2, 'CET4'),
+(13, 'approach', '/əˈprəʊtʃ/', '方法；接近', 'We need a new approach to language learning.', '我们需要一种新的语言学习方法。', 2, 'CET4'),
+(14, 'consume', '/kənˈsjuːm/', '消耗；消费', 'Reading news in English consumes less time now.', '现在阅读英语新闻花费的时间更少了。', 2, 'CET6'),
+(15, 'decline', '/dɪˈklaɪn/', '下降；拒绝', 'The number of errors began to decline.', '错误数量开始下降。', 2, 'CET4'),
+(16, 'efficient', '/ɪˈfɪʃənt/', '高效的', 'A good review plan makes vocabulary learning efficient.', '好的复习计划会让词汇学习更高效。', 2, 'CET4'),
+(17, 'factor', '/ˈfæktə(r)/', '因素', 'Interest is an important factor in study.', '兴趣是学习中的一个重要因素。', 1, 'CET4'),
+(18, 'illustrate', '/ˈɪləstreɪt/', '说明；阐明', 'The teacher used an example to illustrate the rule.', '老师用一个例子来说明这个规则。', 2, 'CET6'),
+(19, 'maintain', '/meɪnˈteɪn/', '保持；维持', 'It is hard to maintain concentration for a long time.', '长时间保持专注很难。', 2, 'CET4'),
+(20, 'obvious', '/ˈɒbviəs/', '明显的', 'The answer is obvious from the context.', '从上下文中可以明显看出答案。', 1, 'CET4'),
+(21, 'participate', '/pɑːˈtɪsɪpeɪt/', '参加', 'Students are encouraged to participate in discussion.', '鼓励学生参与讨论。', 2, 'CET4'),
+(22, 'principle', '/ˈprɪnsəpl/', '原则；原理', 'Practice and feedback are basic learning principles.', '练习和反馈是基本的学习原则。', 2, 'CET6'),
+(23, 'significant', '/sɪɡˈnɪfɪkənt/', '重要的；显著的', 'There has been a significant improvement in her writing.', '她的写作有了显著提高。', 2, 'CET4'),
+(24, 'strategy', '/ˈstrætədʒi/', '策略', 'You need a clear strategy for exam preparation.', '你需要一个清晰的备考策略。', 2, 'CET6'),
+(25, 'tend', '/tend/', '倾向于；往往会', 'Beginners tend to make tense mistakes.', '初学者往往会犯时态错误。', 1, 'CET4');
+
+INSERT IGNORE INTO `question` (`id`, `title`, `type`, `difficulty`, `knowledge_id`, `answer`, `analysis`, `score`, `source`) VALUES
+(6, 'Choose the word closest in meaning to "important".', 1, 1, 1, 'C', 'crucial means very important.', 10, 'manual'),
+(7, 'Choose the correct form: By the time we arrived, the meeting ___.', 1, 2, 2, 'B', 'Past perfect is used for an action completed before another past action.', 10, 'manual'),
+(8, 'Which sentence contains an attributive clause?', 1, 2, 3, 'A', 'A relative clause modifies a noun.', 10, 'manual'),
+(9, 'If he ___ more carefully, he would not make so many mistakes.', 1, 2, 4, 'D', 'The subjunctive mood uses the past tense form to express an unreal present condition.', 10, 'manual'),
+(10, 'Read the sentence: "Online learning offers flexible schedules for busy students." The key advantage mentioned is ___.', 1, 1, 5, 'B', 'The sentence clearly points to flexible schedules.', 10, 'manual'),
+(11, 'Choose the best word to complete the sentence: A good learning ___ can improve efficiency.', 1, 1, 1, 'D', 'strategy best fits the sentence meaning.', 10, 'manual'),
+(12, 'Choose the correct form: He usually ___ to school by bike, but today he is walking.', 1, 1, 2, 'A', 'Simple present is used for habitual actions.', 10, 'manual'),
+(13, 'Which of the following words can best replace "clear" in the sentence "The answer is clear"?', 1, 1, 1, 'B', 'obvious means easy to notice or understand.', 10, 'manual'),
+(14, 'Select the sentence that contains a noun clause.', 1, 2, 3, 'C', 'A noun clause can function as an object in the sentence.', 10, 'manual'),
+(15, 'Choose the correct translation for "他往往在考试前感到紧张。"', 1, 2, 10, 'A', 'tend to is used to express a habitual tendency.', 10, 'manual'),
+(16, 'Which sentence best shows the use of present perfect tense?', 1, 2, 2, 'D', 'Present perfect connects past actions with the present.', 10, 'manual'),
+(17, 'Translate: "坚持练习是提高口语的关键。"', 4, 2, 10, 'Continuous practice is the key to improving spoken English.', 'The sentence focuses on persistence and the key to improvement.', 10, 'manual'),
+(18, 'What does the word "adapt" most nearly mean?', 1, 1, 1, 'C', 'adapt means to adjust to new conditions.', 10, 'manual'),
+(19, 'Choose the sentence with correct tense usage.', 1, 2, 2, 'B', 'The sentence uses the present perfect correctly with "since".', 10, 'manual'),
+(20, 'If I ___ enough time tomorrow, I would revise all the notes again.', 1, 3, 4, 'A', 'In unreal future/present conditions, "had" is often used in basic teaching materials here.', 10, 'manual'),
+(21, 'The author mentions "efficient review" mainly to show that ___.', 1, 2, 5, 'D', 'The statement emphasizes the value of a proper review method.', 10, 'manual'),
+(22, 'Fill in the blank with the best answer: Students should ___ actively in class discussion.', 1, 1, 1, 'C', 'participate is the correct collocation with "in".', 10, 'manual'),
+(23, 'Choose the sentence that uses a relative pronoun correctly.', 1, 2, 3, 'B', 'The clause is introduced properly and modifies the noun.', 10, 'manual'),
+(24, 'Translate: "有效的方法能够帮助我们保持学习动力。"', 4, 2, 10, 'Effective methods can help us maintain motivation for learning.', 'maintain motivation is a natural collocation in English.', 10, 'manual'),
+(25, 'Which option best completes the sentence: Practice and feedback are two important learning ___.', 1, 2, 1, 'A', 'principles is the best choice semantically and grammatically.', 10, 'manual');
+
+INSERT IGNORE INTO `question_option` (`question_id`, `option_key`, `option_value`) VALUES
+(6, 'A', 'brief'), (6, 'B', 'cautious'), (6, 'C', 'crucial'), (6, 'D', 'ambiguous'),
+(7, 'A', 'has begun'), (7, 'B', 'had begun'), (7, 'C', 'begins'), (7, 'D', 'will begin'),
+(8, 'A', 'The book that you lent me is useful.'), (8, 'B', 'I believe that he is honest.'), (8, 'C', 'When he arrived, we had left.'), (8, 'D', 'Please tell me the truth.'),
+(9, 'A', 'listens'), (9, 'B', 'listened'), (9, 'C', 'has listened'), (9, 'D', 'listened'),
+(10, 'A', 'online courses are cheaper'), (10, 'B', 'students can study at convenient times'), (10, 'C', 'teachers work less'), (10, 'D', 'students do not need homework'),
+(11, 'A', 'factor'), (11, 'B', 'analysis'), (11, 'C', 'principle'), (11, 'D', 'strategy'),
+(12, 'A', 'goes'), (12, 'B', 'is going'), (12, 'C', 'went'), (12, 'D', 'has gone'),
+(13, 'A', 'brief'), (13, 'B', 'obvious'), (13, 'C', 'careful'), (13, 'D', 'formal'),
+(14, 'A', 'He was reading when I came in.'), (14, 'B', 'The man who called you is here.'), (14, 'C', 'I know that she can solve the problem.'), (14, 'D', 'Although it rained, we left early.'),
+(15, 'A', 'He tends to feel nervous before exams.'), (15, 'B', 'He is nervously before exams.'), (15, 'C', 'He tends feeling nervous before exams.'), (15, 'D', 'He feel nervous before exams.'),
+(16, 'A', 'I finished my homework last night.'), (16, 'B', 'I am finishing my homework now.'), (16, 'C', 'I finish my homework every day.'), (16, 'D', 'I have finished my homework already.'),
+(18, 'A', 'to explain clearly'), (18, 'B', 'to refuse politely'), (18, 'C', 'to adjust to a new situation'), (18, 'D', 'to repeat something'),
+(19, 'A', 'She has went to the library since noon.'), (19, 'B', 'She has studied English since primary school.'), (19, 'C', 'She study English for two hours yesterday.'), (19, 'D', 'She is studied English now.'),
+(20, 'A', 'had'), (20, 'B', 'have'), (20, 'C', 'am having'), (20, 'D', 'will have'),
+(21, 'A', 'students should stop taking notes'), (21, 'B', 'difficult words should be ignored'), (21, 'C', 'review is unnecessary after class'), (21, 'D', 'a proper method can improve learning results'),
+(22, 'A', 'consume'), (22, 'B', 'maintain'), (22, 'C', 'participate'), (22, 'D', 'decline'),
+(23, 'A', 'This is the reason because I was late.'), (23, 'B', 'The student who won the prize is my friend.'), (23, 'C', 'The book what I bought is expensive.'), (23, 'D', 'She is the girl which sings well.'),
+(25, 'A', 'principles'), (25, 'B', 'strategies'), (25, 'C', 'examples'), (25, 'D', 'mistakes');

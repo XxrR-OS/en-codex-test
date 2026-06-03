@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.english.platform.mapper.UserQuestionRecordMapper">
+
+    <select id="selectWeeklyQuestionStats" resultType="java.util.Map">
+        SELECT
+            DATE(create_time) AS studyDate,
+            COUNT(*) AS total,
+            SUM(is_correct) AS correctCount,
+            SUM(score_got) AS totalScore
+        FROM user_question_record
+        WHERE user_id = #{userId}
+          AND create_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+        GROUP BY DATE(create_time)
+        ORDER BY studyDate
+    </select>
+
+    <select id="selectWrongQuestions" resultType="java.util.Map">
+        SELECT
+            r.id AS recordId,
+            r.user_answer AS userAnswer,
+            r.create_time AS answerTime,
+            q.id AS questionId,
+            q.title,
+            q.type,
+            q.difficulty,
+            q.answer AS correctAnswer,
+            q.analysis,
+            kp.name AS knowledgeName
+        FROM user_question_record r
+        JOIN question q ON r.question_id = q.id
+        LEFT JOIN knowledge_point kp ON q.knowledge_id = kp.id
+        WHERE r.user_id = #{userId} AND r.is_correct = 0
+        ORDER BY r.create_time DESC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countWrongQuestions" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM user_question_record
+        WHERE user_id = #{userId} AND is_correct = 0
+    </select>
+</mapper>

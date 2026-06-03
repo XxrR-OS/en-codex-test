@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.english.platform.mapper.StudyCheckinMapper">
+    <!-- 计算连续打卡天数（从今天往前数连续的天数） -->
+    <select id="selectContinuousDays" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM (
+            SELECT checkin_date,
+                   ROW_NUMBER() OVER (ORDER BY checkin_date DESC) AS rn,
+                   DATEDIFF(CURDATE(), checkin_date) AS diff
+            FROM study_checkin
+            WHERE user_id = #{userId}
+        ) t
+        WHERE diff = rn - 1
+    </select>
+</mapper>

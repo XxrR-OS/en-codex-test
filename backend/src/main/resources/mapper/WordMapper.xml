@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.english.platform.mapper.WordMapper">
+
+    <!-- 推荐未学习单词或到期复习单词 -->
+    <select id="selectRecommendWords" resultType="com.english.platform.entity.Word">
+        SELECT w.*
+        FROM word w
+        LEFT JOIN user_word_record r ON w.id = r.word_id AND r.user_id = #{userId}
+        WHERE w.level = #{level}
+          AND (r.id IS NULL OR (r.mastered = 0 AND (r.next_review IS NULL OR r.next_review &lt;= NOW())))
+        ORDER BY RAND()
+        LIMIT #{limit}
+    </select>
+</mapper>

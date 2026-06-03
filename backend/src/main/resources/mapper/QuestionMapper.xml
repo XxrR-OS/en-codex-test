@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.english.platform.mapper.QuestionMapper">
+
+    <select id="selectAdaptiveQuestions" resultType="com.english.platform.entity.Question">
+        SELECT *
+        FROM question
+        WHERE difficulty = #{difficulty}
+        <if test="knowledgeIds != null and knowledgeIds.size() > 0">
+            AND knowledge_id IN
+            <foreach item="id" collection="knowledgeIds" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        <if test="excludeIds != null and excludeIds.size() > 0">
+            AND id NOT IN
+            <foreach item="id" collection="excludeIds" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        ORDER BY RAND()
+        LIMIT #{limit}
+    </select>
+</mapper>
